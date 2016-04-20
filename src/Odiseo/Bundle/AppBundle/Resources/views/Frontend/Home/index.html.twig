@@ -1,0 +1,35 @@
+{% extends 'OdiseoAppBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<!-- PAGE | WELCOME -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_welcome.html.twig') }}
+<!-- END PAGE | Welcome -->
+
+<!-- PAGE | WORK -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_work.html.twig', { 'projects': projects, 'tags': tags }) }}
+<!-- END PAGE | WORK -->
+
+<!-- PAGE | CLIENTS -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_clients.html.twig') }}
+<!-- END PAGE | CLIENTS -->
+
+<!-- PAGE | FEATURES  -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_features.html.twig') }}
+<!-- END PAGE | FEATURES -->
+
+<!-- PAGE | ABOUT -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_about.html.twig') }}
+<!-- END PAGE | ABOUT -->
+
+<!-- PAGE | TWITTER -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_twitter.html.twig') }}
+<!-- END PAGE | TWITTER -->
+
+<!-- PAGE | BLOG -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_blog.html.twig') }}
+<!-- END PAGE | BLOG -->
+
+<!-- PAGE | CONTACT -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_contact.html.twig') }}
+<!-- END PAGE | CONTACT -->
+{% endblock %}

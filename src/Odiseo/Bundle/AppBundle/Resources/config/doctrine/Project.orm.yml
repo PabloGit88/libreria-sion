@@ -1,0 +1,47 @@
+Odiseo\Bundle\AppBundle\Entity\Project:
+    type: entity
+    table: odiseo_project
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            column: name
+            type: string
+        description:
+            column: description
+            type: text
+            nullable: true
+        link:
+            column: link
+            type: string
+            nullable: true
+        position:
+            column: position
+            type: integer
+            options:
+                default: 0
+        createdAt:
+            type: datetime
+            nullable: false
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+    oneToMany:
+        images:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+          mappedBy: project
+          cascade: ["persist", "merge"]
+    manyToMany:
+        tags:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\Tag
+          inversedBy: projects

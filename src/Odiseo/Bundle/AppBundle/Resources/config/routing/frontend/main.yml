@@ -1,0 +1,15 @@
+odiseo_app_frontend_homepage:
+    path:     /
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:index" }
+
+odiseo_app_frontend_project_show:
+    path:     /project/{id}
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:projectShow" }
+
+odiseo_app_frontend_blog_post:
+    path:     /blog/{post}
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Blog:show" }
+
+odiseo_app_frontend_contact_send:
+    path:     /contact/send
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:contactSend" }

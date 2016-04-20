@@ -1,0 +1,38 @@
+<section class="portfolio-item-details">
+    <div class="row-fluid">
+        <div  class="span8 slide_default_{{ project.nonMainImages|length }}">
+            <figure>
+                {% for image in project.nonMainImages %}
+                <img src="{{ asset('media/images/'~image.imageName) | imagine_filter('project_gallery')  }}">
+                {% endfor %}
+            </figure>
+
+        </div>
+        <div class="span4">
+            <div class="close-portfolio">
+                <span>&#10006;</span>
+                <div class="clearfix"></div>
+            </div>
+            <h5>{{ project.name }}</h5>
+            <article class="smallFontBy08">
+                {{ project.description | raw }}
+            </article>
+            {% if project.link %}
+            <section class="website">
+                <h5>Sitio</h5>
+                <a href="{{ project.link }}" target="_blank" class="smallFontBy08">{{ project.link }}</a>
+            </section>
+            {% endif %}
+
+            <div class="submenu">
+                <ul>
+                    {% for tag in project.tags %}
+                    <li>
+                        <span>{{ tag.name }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

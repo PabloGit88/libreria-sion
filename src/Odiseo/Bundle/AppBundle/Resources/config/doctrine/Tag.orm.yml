@@ -1,0 +1,22 @@
+Odiseo\Bundle\AppBundle\Entity\Tag:
+    type: entity
+    table: odiseo_tag
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            column: name
+            type: string
+        isFilter:
+            column: is_filter
+            type: boolean
+            options:
+                default: false
+    manyToMany:
+        projects:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\Project
+          mappedBy: tags

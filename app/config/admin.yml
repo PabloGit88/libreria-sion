@@ -1,0 +1,76 @@
+easy_admin:
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+    site_name: 'Odiseo Website'
+    design:
+        templates:
+            layout: 'OdiseoBackendBundle::layout.html.twig'
+            edit: 'OdiseoBackendBundle::default/edit.html.twig'
+            list: 'OdiseoBackendBundle::default/list.html.twig'
+            show: 'OdiseoBackendBundle::default/show.html.twig'
+            new: 'OdiseoBackendBundle::default/new.html.twig'
+            paginator: 'OdiseoBackendBundle::default/paginator.html.twig'
+            field_image: 'OdiseoAppBundle:Backend:fields/field_image.html.twig'
+    list:
+        max_results: 15
+        actions: [{ name: 'new', label: 'Nuevo' }, { name: 'edit', label: 'Editar', css_class: 'btn btn-primary', icon: 'edit' }, { name: 'show', label: 'Detalles', css_class: 'btn btn-default', icon: 'eye' }]
+    entities:
+        User:
+            label: 'Usuarios'
+            class: Odiseo\Bundle\AppBundle\Entity\User
+            form:
+                fields: ['username', 'email', 'plainPassword', 'isEnabled']
+            list:
+                title: '%%entity_label%%'
+                fields: ['id', 'username', 'email', { property: 'isEnabled', type: 'toggle' }]
+            edit:
+                title:  'Editar usuario %%entity_id%%'
+            new:
+                title:  'Nuevo usuario'
+            show:
+                title:  'Usuario %%entity_id%%'
+                fields: ['username', 'email', 'isEnabled']
+        Project:
+            class: Odiseo\Bundle\AppBundle\Entity\Project
+            label: 'Proyectos'
+            image_base_path: '/media/images/'
+            form:
+                fields: ['name', { property: 'description', type: 'textarea', css_class: 'col-xs-12 tinymce' }, 'link', 'position', 'images', 'tags']
+            list:
+                title: '%%entity_label%%'
+                fields: ['id', 'name', 'link', 'position', 'tagsText', 'images', 'createdAt', 'updatedAt']
+            edit:
+                title:  'Editar proyecto %%entity_id%%'
+            show:
+                title:  'Proyecto %%entity_id%%'
+                fields: ['id', 'name', { property: 'description', type: 'raw' }, 'link', 'position', 'images', 'tags', 'createdAt', 'updatedAt']
+        ProjectImage:
+            class: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+            label: 'Imágenes de proyectos'
+            image_base_path: '/media/images/'
+            form:
+                fields: ['project', { property: 'imageFile', label: 'Image', type: 'file' }, 'isMain']
+            list:
+                title: '%%entity_label%%'
+                fields: ['id', 'project', { property: 'imageName', label: 'Image', type: 'image' }, { property: 'isMain', type: 'toggle' }, 'createdAt', 'updatedAt']
+            edit:
+                title:  'Editar imagen %%entity_id%%'
+            show:
+                title:  'Imagen %%entity_id%%'
+                fields: ['id', 'project', { property: 'imageName', label: 'Image', type: 'image' }, 'isMain', 'createdAt', 'updatedAt']
+        Tag:
+            class: Odiseo\Bundle\AppBundle\Entity\Tag
+            label: 'Tags'
+            image_base_path: '/media/images/'
+            form:
+                fields: ['name', 'isFilter', 'projects']
+            list:
+                title: '%%entity_label%%'
+                fields: ['id', 'name', { property: 'isFilter', type: 'toggle' }, 'projects']
+            edit:
+                title:  'Editar tag %%entity_id%%'
+            show:
+                title:  'Tag %%entity_id%%'
+                fields: ['id', 'name', 'isFilter', 'projects']

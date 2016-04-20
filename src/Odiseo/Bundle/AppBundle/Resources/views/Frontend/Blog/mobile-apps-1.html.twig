@@ -1,0 +1,119 @@
+{% extends 'OdiseoAppBundle:Frontend/Blog:layout.html.twig' %}
+
+{% block content %}
+<div class="pages page-blog-list" id="page-blog-list">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h4 class="line-divider">Blog</h4>
+            <h1>Blog Posts</h1>
+
+        </header>
+        <!-- End Header -->
+
+        <div class="row-fluid">
+            <div class="span8 blog-details">
+                <!-- Article -->
+                <article>
+                    <!-- Blog image -->
+
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/best_approach.jpg') }}">
+                    <br><br>
+                    <!-- Blog title -->
+                    <h5>
+                        O Nativas, O Web Apps, O Híbridas.<br/>
+                        <small>Posted By <a href="#">Odiseo Team</a>, Febrero 6, 2015, in <a href="#">Apps Híbridas</a></small>
+                    </h5>
+
+                    <!-- Blog post description -->
+                    <p>
+                        Dado la proliferación de dispositivos móviles que se viene dando desde ya hace un tiempo, decidimos en este primer post abordar el tema de las diferentes opciones a la hora de elegir  aplicaciones para tales tipos de plataforma. Vamos a tocar diferentes temas importantes que van desde la dificultad del desarrollo , hasta el costo del desarrollo, pasando por los tiempos de desarrollo, el costo de mantenimiento, el de  deploy, etc.
+                        Para  empezar, y sobre todo para terminar de convencernos de haber elegido un buen topic, vamos a mostrar algunos números
+                        <br><br>
+
+
+                    </p>
+                    <p><strong>Evolución global de las ventas de dispositivos</strong></p>
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/global_internet_devices_sales.png') }}" class="center-block">
+                    <br>
+                    <p> <strong>Evolución del tráfico de datos </strong>desde dispositivos móviles a nivel global. Como pueden apreciar la evolución del crecimiento desde el año 2009 hasta el proyectado para el 2017 es impresionante. </p>
+                    <p>
+                        <img src="{{ asset('bundles/odiseoapp/images/pages/blog/global_mobile_growth.jpg') }}" class="center-block">
+                    </p>
+                    <p>Cantidad de usuario globales. <strong> Los usuarios de móviles superaron a los de computadoras.</strong></p>
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/number_global_users.png') }}" class="center-block">
+
+
+                    <p> Las aplicaciones son las preferidas por los usuarios. <strong>No quieren páginas web que se vean bien en el celular.</strong></p>
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/they_prefer_mobile_app.jpg') }}" class="center-block">
+                    <br>
+                    <p> Es una cuestión de conveniencia. <strong>Es una cuestión de tiempo.</strong></p>
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/mobile_faster.jpg') }}" class="center-block">
+                    <br>
+
+                    <p>
+
+                        Ya estamos convencidos.  Vamos a continuar, y lo vamos a hacer abordando cronológicamente - por orden de llegada-  las diferentes opciones a la hora de enfrentar la necesidad de construir una aplicación que corra sobre los celulares:
+
+                    </p>
+                    <ul style="list-style-type:none">
+                        <li>1- App Native.</li>
+                        <li>2- Web Mobile App</li>
+                        <li>3- Hybrid Mobile App.</li>
+                    </ul>
+                    <h5> Apps Nativas</h5>
+                    <p>
+                        Este tipo de aplicaciones están desarrolladas en el lenguaje que especificó el propietario del sistema operativo,(al momento del nacimiento) sobre el que corren
+                    </p>
+                    <ul style="list-style-type:square">
+                        <li>Java para Android.</li>
+                        <li>Objective-C para iOS ( iPhone ).</li>
+                        <li>C# para Windows Phone.</li>
+                    </ul>
+                    <p>
+                        Al estar codeadas con lenguajes totalmente diferentes, no son aplicaciones cross-plataform. Esto quiere decir que si la aplicación fue codeada para Android por un desarrollador Java, entonces al momento de querer que corra sobre iOs tendrá que ser codeada desde cero por un desarrollador iOs, la misma situación sucederá para el caso  de querer que corra sobre Windos Phone, no va a quedar otra opción que contratar un programador C#.
+                        <br><br>
+                        Resumiendo. Si queremos una aplicación que corra sobre las diferentes plataformas vamos a necesitar tres programadores con diferentes skills y que tengan una buena experiencia desarrollando en el lenguaje nativo. El costo por hora? Puede llegar a parecer caro, pero no es en absoluto dado el perfil que se requiere. Un profesional, con un nivel intermedio de inglés ( gran mayoría de la documentación está en este idioma ), con un pensamiento lógico-matemático, con años de experiencia y que seguramente tuvo en la facultad materias como Álgebra I, Álgebra II, Análisis Matemático I y II, Algoritmos y Programación. Y sepan, que la lista sigue y es larga.
+                        <br><br>
+                        Con los tiempos de desarrollo sucede exactamente lo mismo, es decir será multiplicado por la cantidad de plataformas en las que se deseen que corran la app.
+                        <br><br>
+
+                        Con respecto al mantenimiento, si surgen bugs que no son propietarios de una plataforma, sucederá lo mismo que con los tiempos de desarrollo. Esta situación se repite a la hora de  mantener el código versionado, de agregar features para todas las plataforma, de desarrollar nuevos releases  y de cualquier otra  tipos de tareas involucradas en el proceso de desarrollo del software.
+                        <br><br>
+                        Seguramente, a esta altura, se estarán preguntado si optar por esta opción posee alguna ventaja. Pues claro que la posee, y vaya que tiene relevancia, tanto que a veces tal ventaja hace que no exista mejor opción que la que le presentamos en este post. La principal VENTAJA es la POTENCIA. Es que  con esta opción aprovechamos al máximo el hardware que nos provee el dispositivo. Llevándola al plano del automovilismo es cómo poner un auto de Fórmula 1 a manos de un conductor de Fórmula 1.  No va a existir mejor actor para aprovechar al máximo tal mecánica.
+                        <br><br>
+                        Llegado a este punto, la pregunta que nos resta hacer es ¿ Dado la potencia que requerimos para cubrir nuestra expectativas necesitamos un Fórmula 1? ¿ Qué diferncia habrá - y otra vez dado la potencia que necesitamos- entre andar  con un Fórmula 1  o un Volkswagen Bora  por una ruta cuya velocidad máxima es de 100km/h ? Tal vez andar con un Formula 1 por tal ruta, nos tentará a apretar un poco más acelerador, y gastar más dinero por el pago del combustible y, quizás, de multas por malas prácticas..
+                        <br><br>
+                        En el próximo post, les vamos a presentar las otras dos opciones.  A los ansiosos, les motivamos la ansiedad con la próxima imagen.  Queremos que no sean capaces de controlarla y se pongan a investigar.
+                        <br><br>
+                    </p>
+                    <img src="{{ asset('bundles/odiseoapp/images/pages/blog/comparison.jpg') }}" class="center-block">
+                </article>
+                <!-- End Article -->
+
+
+                <!-- End Blog comments -->
+
+                <!-- Blog Write comment -->
+
+                <!-- End Blog Write comment -->
+            </div>
+            <div class="span4 blog-list-right">
+                <!-- Latest blog posts block -->
+                <div class="block">
+                    <h6>Latest blog posts</h6>
+                    <ul class="simple-link-list">
+                        <li>
+                            <a href="{{ path('odiseo_app_frontend_blog_post', {'post': 'mobile-apps-1'}) }}" class="active"> O Nativas, O Web Apps, O Híbridas.</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

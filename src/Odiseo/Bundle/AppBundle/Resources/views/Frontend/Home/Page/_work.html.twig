@@ -1,0 +1,67 @@
+<div class="pages page-work" id="page-work" >
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h4 class="line-divider">Work</h4>
+            <!-- Short desciption about Work in general -->
+            <div class="row">
+                <div class="span8 offset2">
+                    <p>
+                        by Odiseo Team
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sub menu -->
+            <!--
+            Params:
+                plugin-filter: Defines links for filtering.
+            -->
+            <nav class="submenu">
+                <ul>
+                    <li>
+                        <a href="#" class="plugin-filter active" data-filter="all">All</a>
+                    </li>
+                    {% for tag in tags if tag.isFilter %}
+                    <li>
+                        <a href="#" class="plugin-filter {{ tag.name }}" data-filter="{{ tag.name }}">{{ tag.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+        <!-- End Header -->
+
+        <!-- Article -->
+        <article>
+            <!-- Portfolio items
+                Params:
+                    plugin-filter-elements: Defines items for filtering, each item has class which defines filter value.
+                    portfolio-items: Customise portfolio items for hover effect.
+            -->
+            <ul class="thumbnails plugin-filter-elements portfolio-items">
+                {% for project in projects %}
+                <li class="span4 mix {{ project.tagsText }}">
+                    <a href="#{{ path('odiseo_app_frontend_project_show', {'id': project.id}) }}" data-destination="portfolio-items" data-insert="before">
+                        <img src="{{ asset('media/images/'~project.mainImage.imageName) | imagine_filter('project_list')  }}" alt="{{ project.name }}">
+                        <div class="portfolio-overlay">
+                            <h4>{{ project.name }}</h4>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </article>
+        <!-- End Article -->
+
+        <!-- Footer -->
+        <!-- <footer>
+            <div class="show-more-cube">
+                 <a href="#pages/portfolio/readmore.html" data-destination="plugin-filter-elements" data-insert="appendTo" data-action="remove">
+                    <span>Show<br/>More</span>
+                </a>
+            </div>
+        </footer> -->
+        <!-- End footer -->
+    </div>
+</div>

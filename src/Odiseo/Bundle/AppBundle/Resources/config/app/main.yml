@@ -1,0 +1,24 @@
+sylius_resource:
+    resources:
+        odiseo.user:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\AppBundle\Entity\User
+                repository: Odiseo\Bundle\AppBundle\Repository\UserRepository
+        odiseo.project:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\AppBundle\Entity\Project
+                repository: Odiseo\Bundle\AppBundle\Repository\ProjectRepository
+        odiseo.tag:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\AppBundle\Entity\Tag
+
+hype_mailchimp:
+    api_key: 37aac8475fe2173f742ec7214bc2329b-us12
+    default_list: 36ef59b330
+    ssl: true #optional configuring curl connection
+
+beelab_tag:
+    tag_class: Odiseo\Bundle\AppBundle\Entity\Tag

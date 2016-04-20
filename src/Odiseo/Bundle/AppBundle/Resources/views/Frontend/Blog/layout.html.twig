@@ -1,0 +1,67 @@
+{% extends 'OdiseoAppBundle:Frontend:layout.html.twig' %}
+
+{% block javascripts %}
+    {% javascripts output='js/blog.min.js'
+    'bundles/odiseoapp/js/jquery-1.10.2.min.js'
+    'bundles/odiseoapp/js/bootstrap/bootstrap.min.js'
+    'bundles/odiseoapp/js/bootstrap/html5shiv.js'
+    'bundles/odiseoapp/js/plugins/jquery.responsivevideos.min.js'
+    'bundles/odiseoapp/js/plugins/jquery.tweet.min.js'
+    'bundles/odiseoapp/js/application/application-blog-list.min.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block main %}
+<!-- NAVIGATION -->
+<nav class="fixed-top fixed-visable" id="navigation">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12 center">
+                <!-- LOGO -->
+                <a class="brand pull-left" href="http://www.odiseo.com.ar">
+                    Odiseo Team
+                </a>
+                <!-- END LOGO -->
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="mobile-menu" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <!-- END MOBILE MENU BUTTON -->
+
+                <!-- MAIN MENU -->
+                <ul id="main-menu" class="nav-collapse collapse">
+                    <li><a href="http://www.odiseo.com.ar/#page-welcome" class="home">Home</a></li>
+                    <li><a href="http://www.odiseo.com.ar/#page-work" class="portfolio">Portfolio</a></li>
+                    <li><a href="http://www.odiseo.com.ar/#page-features" class="tecnologia">Tecnologías</a></li>
+
+                    <li><a href="http://www.odiseo.com.ar/#page-blog">Blog</a></li>
+                    <li><a href="http://www.odiseo.com.ar/#page-contact">Contacto</a></li>
+                </ul>
+                <!-- END MAIN MENU -->
+
+                <!-- SOCIAL ICONS -->
+                <div class="social-icons hover-big pull-right">
+                    <a href="https://www.facebook.com/odiseoteam" target="_blank" class="sicon-facebook"><i>Facebook</i></a>
+                    <a href="https://twitter.com/OdiseoTeam" target="_blank" class="sicon-twitter"><i>Twitter</i></a>
+                </div>
+                <!-- END SOCIAL ICONS -->
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END NAVIGATION -->
+
+<!-- PAGE | BLOG -->
+{% block content %}
+{% endblock %}
+<!-- END PAGE | BLOG -->
+
+<!-- PAGE | CONTACT -->
+{{ include('OdiseoAppBundle:Frontend/Home/Page:_contact.html.twig') }}
+<!-- END PAGE | CONTACT -->
+{% endblock %}

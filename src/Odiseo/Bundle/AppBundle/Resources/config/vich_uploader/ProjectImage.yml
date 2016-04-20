@@ -1,0 +1,4 @@
+Odiseo\Bundle\AppBundle\Entity\ProjectImage:
+    imageFile:
+        mapping:           images
+        filename_property: image_name

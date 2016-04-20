@@ -1,0 +1,111 @@
+<div class="pages black-bg white page-contact" id="page-contact">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h4 class="line-divider">Contacto</h4>
+            <h1>Contáctenos!</h1>
+            <div class="row">
+                <div class="span8 offset2">
+                    <p>
+                        Disfrutamos desarrollar y diseñar software para emprendedores, empresas, agencias creativas digitales, e individuos. Escríbanos , le contestaremos en el mismo día de 9 hs a 18 hs. </p>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Start Article -->
+        <article>
+            <div class="row-fluid">
+                <!-- Contact form -->
+                <div class="span6">
+                    <h5>Póngase en contacto con nosotros. Su consulta es un placer.</h5>
+                    <form id="contactForm" action="{{ path('odiseo_app_frontend_contact_send') }}" method="post" onsubmit="sendEmail(); return false;">
+                        <input type="text" name="email[name]"  class="span12" placeholder="Nombre" required="required">
+                        <input type="email"  name="email[userEmail]" class="span12" placeholder="Email" required="required">
+                        <textarea rows="10"  name="email[body]" class="span12" required="required"></textarea>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+                <!-- End Contact form -->
+                <!-- Contact information -->
+                <div class="span5 offset1">
+                    <h5>Encuéntrenos</h5>
+                    <div class="media">
+                        <!--     <div class="social-icons sicon-white pull-left">
+                                <a href="#" class="sicon-phone"><i>Phone</i></a>
+                            </div>
+                             <div class="media-body smallFontBy08">
+                                (+1) 502 964-0393 | (+1) 502 964-0393 (FAX)
+                            </div>-->
+                    </div>
+                    <div class="media">
+                        <div class="social-icons sicon-white pull-left">
+                            <a href="#" class="sicon-place"><i>Ubicación</i></a>
+                        </div>
+                        <div class="media-body smallFontBy08">
+                            Argentina, Buenos Aires.
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="social-icons sicon-white pull-left">
+                            <a href="#" class="sicon-mail"><i>email</i></a>
+                        </div>
+                        <div class="media-body smallFontBy08">
+                            team@odiseo.com.ar
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="{{ asset('bundles/odiseoapp/images/ico/skype-3-24.ico') }}" style="vertical-align: top;">
+                        </div>
+                        <div class="media-body smallFontBy08">
+                            odiseo.team
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="social-icons sicon-white pull-left">
+                            <a href="#" class="sicon-clock"><i>Time zone</i></a>
+                        </div>
+                        <div class="media-body smallFontBy08">
+                            UTC / GMT -3
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h5>Redes sociales.</h5>
+                    <div class="social-icons sicon-white bordered">
+                        <a href="https://www.facebook.com/odiseoteam" target="_blank" class="sicon-facebook"><i>Facebook</i></a>
+                        <a href="https://twitter.com/OdiseoTeam" target="_blank" class="sicon-twitter"><i>Twitter</i></a>
+                    </div>
+                    <div class="social-icons">
+                        <br>
+                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fodiseoteam&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=431365223678145" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+                        <br>
+                        <a href="https://twitter.com/odiseoteam" class="twitter-follow-button" data-show-count="false">Follow @odiseoteam</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </div>
+                </div>
+                <!-- End Contact information -->
+            </div>
+        </article>
+        <!-- End Article -->
+
+    </div>
+
+
+    <!-- Background map image -->
+    <div id="map-image">
+        <img src="{{ asset('bundles/odiseoapp/images/pages/contact/map_bck.jpg') }}" alt="Odiseo Team">
+    </div>
+
+    <div class="fotter_data">
+        <a href="http://qr.afip.gob.ar/?qr=6SyVu17Txq30uCozV8vyRA,," target="_F960AFIPInfo"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0"></a>
+        <div class="center-block creative_commons">
+            <a  rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+            </a>
+            <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Odiseo Team Web Site</span> por <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.odiseo.com.ar" property="cc:attributionName" rel="cc:attributionURL">Odiseo Team</a> se distribuye bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Licencia Creative Commons Atribución-NoComercial 4.0 Internacional</a>.
+        </div>
+    </div>
+</div>
