@@ -1,0 +1,26 @@
+easy_admin:
+    entities:
+        Tag:
+            class: Odiseo\Bundle\AppBundle\Entity\Tag
+            label: 'Categorias'
+            image_base_path: '/media/images/'
+            form:
+                fields:
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'isFilter', label: 'Usar como filtro?' }
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'isFilter', label: 'Usar como filtro?', type: 'toggle' }
+            edit:
+                title:  'Editar categoria %%entity_id%%'
+            show:
+                title:  'Categoria %%entity_id%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'isFilter', label: 'Usar como filtro?' }
+            new:
+                title:  'Crear nueva categoria'

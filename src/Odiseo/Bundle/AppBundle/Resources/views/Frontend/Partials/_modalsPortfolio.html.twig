@@ -1,0 +1,39 @@
+<!-- Portfolio Modals -->
+{% for project in projects %}
+<div class="portfolio-modal modal fade" id="portfolioModal_{{ project.id }}" data-project-id="{{ project.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="modal-body">
+                        <h2>{{ project.name }}</h2>
+                        <hr class="star-primary">
+                        <div class="slider-pro" id="product_{{ project.id }}_slider">
+                            <div class="sp-slides">
+                                {% for image in project.images %}
+                                <div class="sp-slide">
+                                    <img src="{{ image.imageName|imagine_filter('project_gallery') }}" class="sp-image" alt="{{ project.name }}">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p>{{ project.description|raw }}</p>
+                        <ul class="list-inline item-details">
+                            {% for file in project.files %}
+                            <li><a href="{{ asset('media/files/'~file.fileName) }}" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-download" aria-hidden="true"></i> {{ file.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

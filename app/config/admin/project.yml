@@ -1,0 +1,99 @@
+easy_admin:
+    entities:
+        Project:
+            class: Odiseo\Bundle\AppBundle\Entity\Project
+            label: 'Proyectos'
+            image_base_path: '/media/images/'
+            form:
+                fields:
+                  - { property: 'name', label: 'Nombre' }
+                  - { property: 'description', label: 'Descripción', type: 'ckeditor' }
+                  - { property: 'position', label: 'Posición' }
+                  - { property: 'images', label: 'Imágenes', type_options: { by_reference: false} }
+                  - { property: 'files', label: 'Archivos', type_options: { by_reference: false} }
+                  - { property: 'tags', label: 'Categorias', type_options: { by_reference: false} }
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'position', label: 'Posición' }
+                    - { property: 'tagsText', label: 'Categorias' }
+                    - { property: 'images', label: 'Imágenes' }
+                    - { property: 'files', label: 'Archivos' }
+                    - { property: 'createdAt', label: 'Fecha creación' }
+            edit:
+                title:  'Editar proyecto %%entity_id%%'
+            new:
+                title:  'Crear nuevo Proyecto'
+            show:
+                title:  'Proyecto %%entity_id%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'description', type: 'raw' }
+                    - 'position'
+                    - 'images'
+                    - 'tags'
+                    - 'files'
+                    - 'createdAt'
+        ProjectImage:
+            class: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+            label: 'Imágenes de proyectos'
+            image_base_path: '/media/images/'
+            form:
+                fields:
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'imageFile', label: 'Image', type: 'file' }
+                    - { property: 'isMain', label: 'Es imagen principal?' }
+            new:
+                title: 'Crear nueva imagen'
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'imageName', label: 'Imagen', type: 'image' }
+                    - { property: 'isMain', label: 'Es imagen principal?', type: 'toggle' }
+                    - { property: 'createdAt', label: 'Fecha creación' }
+            edit:
+                title:  'Editar imagen %%entity_id%%'
+            show:
+                title:  'Imagen %%entity_id%%'
+                fields:
+                    - 'id'
+                    - 'project'
+                    - 'name'
+                    - { property: 'imageName', label: 'Image', type: 'image' }
+                    - 'isMain'
+                    - 'createdAt'
+        ProjectFile:
+            class: Odiseo\Bundle\AppBundle\Entity\ProjectFile
+            label: 'Archivos de los proyectos'
+            image_base_path: '/media/files/'
+            form:
+                fields:
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'file', label: 'File', type: 'file' }
+                    - { property: 'position', label: 'Posición' }
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'fileName', label: 'Archivo', template: 'OdiseoAppBundle:Backend/Fields:field_file.html.twig' }
+                    - { property: 'position', label: 'Posición' }
+                    - { property: 'createdAt', label: 'Fecha creación' }
+            edit:
+                title:  'Editar archivo %%entity_id%%'
+            new:
+                title:  'Crear nuevo archivo'
+            show:
+                title:  'Archivo  %%entity_id%%'
+                fields:
+                    - 'id'
+                    - 'project'
+                    - 'name'
+                    - { property: 'fileName', label: 'Archivo', type: 'file' }
+                    - 'position'
+                    - 'createdAt'
