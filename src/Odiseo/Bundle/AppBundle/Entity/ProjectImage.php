@@ -8,6 +8,7 @@ class ProjectImage
 {
     protected $id;
     protected $project;
+    protected $name;
     protected $imageName;
     protected $imageFile;
     protected $isMain;
@@ -28,6 +29,22 @@ class ProjectImage
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     public function setProject($project)
@@ -52,7 +69,17 @@ class ProjectImage
 
     public function setImageFile(File $imageFile)
     {
-        $this->imageFile = $imageFile;
+        if($imageFile instanceof File)
+        {
+            $this->imageFile = $imageFile;
+
+            if(!$this->name)
+            {
+                $this->name = $imageFile->getFilename();
+            }
+
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     public function getImageFile()
@@ -97,6 +124,6 @@ class ProjectImage
 
     public function __toString()
     {
-        return (string)$this->getId();
+        return (string)$this->getName();
     }
 }

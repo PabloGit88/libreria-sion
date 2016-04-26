@@ -2,8 +2,6 @@
 
 namespace Odiseo\Bundle\AppBundle\Controller\Backend;
 
-use Pagerfanta\Adapter\DoctrineORMAdapter;
-use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

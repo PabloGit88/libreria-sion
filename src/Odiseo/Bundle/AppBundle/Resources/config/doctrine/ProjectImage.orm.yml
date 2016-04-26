@@ -8,6 +8,9 @@ Odiseo\Bundle\AppBundle\Entity\ProjectImage:
             generator:
                 strategy: AUTO
     fields:
+        name:
+            column: name
+            type: string
         imageName:
             column: image_name
             type: string

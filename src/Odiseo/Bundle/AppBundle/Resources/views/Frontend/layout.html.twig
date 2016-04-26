@@ -1,149 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- META DATA -->
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <meta name="description" content="Desarrollo de plataformas  web, sitios responsive y  aplicaciones para celulares multiplataforma. E-commerce. Integracion con redes sociales. Facebook. Nuestro clientes: emprendedores, comercios, empresas pymes y particulares. Proveemos soluciones a su medida. ">
-    <meta name="keywords" content="Desarrollo web, diseño, responsive design, app mobile, android iphone">
+    <title>Business Casual - Start Bootstrap Theme</title>
 
-
-    <title>{% block title %}Desarrollo Web y Aplicaciones Móviles | Odiseo Team{% endblock %}</title>
-
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('bundles/odiseoapp/images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/odiseoapp/images/images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('bundles/odiseoapp/images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/odiseoapp/images/ico/apple-touch-icon-57-precomposed.png') }}">
-    <link rel="shortcut icon" href="{{ asset('bundles/odiseoapp/images/ico/favicon.ico') }}">
-
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="{{ asset('bundles/odiseoapp/style/bootstrap.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('bundles/odiseoapp/style/main.css') }}" type="text/css" />
-
-    <!-- GOOGLE WEB FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'>
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
     {% block stylesheets %}
-        {% stylesheets output='js/frontend.min.css'
-        'bundles/odiseoapp/style/bootstrap.css'
-        'bundles/odiseoapp/style/main.css'
+        {% stylesheets output='css/frontend.min.css' filter='cssrewrite'
+        'bundles/odiseoapp/css/bootstrap.min.css'
+        'bundles/odiseoapp/css/business-casual.css'
         %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
     {% endblock %}
+    <link rel="stylesheet" href="{{ asset('bundles/odiseoapp/css/freelancer'~app.request.get('v', '1')~'.css') }}" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
-<body>
-    {% block main %}
+
+<body id="page-top" class="index">
     {% block nav %}
-    <!-- NAVIGATION -->
-    <nav class="fixed-top" id="navigation">
-        <div class="container">
-            <div class="row-fluid">
-                <div class="span12 center">
-                    <!-- LOGO -->
-                    <a class="brand pull-left" href="./">
-                        Odiseo Team
-                    </a>
-                    <!-- END LOGO -->
 
-                    <!-- MOBILE MENU BUTTON -->
-                    <div class="mobile-menu" data-toggle="collapse" data-target=".nav-collapse">
+        <div class="brand">Business Casual</div>
+        <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </div>
-                    <!-- END MOBILE MENU BUTTON -->
-
-                    <!-- MAIN MENU -->
-                    <ul id="main-menu" class="nav-collapse collapse">
-                        <li><a href="#page-welcome" class="home">Home</a></li>
-                        <li><a href="#page-work" class="portfolio">Portfolio</a></li>
-                        <li><a href="#page-features" class="tecnologia">Tecnologías</a></li>
-                        <li><a href="#page-blog">Blog</a></li>
-                        <li><a href="#page-contact">Contacto</a></li>
-                    </ul>
-                    <!-- END MAIN MENU -->
-
-                    <!-- SOCIAL ICONS -->
-                    <div class="social-icons hover-big pull-right">
-                        <a href="https://www.facebook.com/odiseoteam" target="_blank" class="sicon-facebook"><i>Facebook</i></a>
-                        <a href="https://twitter.com/OdiseoTeam" target="_blank" class="sicon-twitter"><i>Twitter</i></a>
-                    </div>
-                    <!-- END SOCIAL ICONS -->
+                    </button>
+                    <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                    <a class="navbar-brand" href="index.html">Business Casual</a>
                 </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-        </div>
-    </nav>
-    <!-- END NAVIGATION -->
+            <!-- /.container -->
+        </nav>
     {% endblock %}
 
+    <div class="container">
     {% block content %}
     {% endblock %}
+    </div>
+
+
+    {% block footer %}
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Your Website 2014</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Script to Activate the Carousel -->
+        <script>
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            })
+        </script>
 
     {% endblock %}
-
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">ODISEO TEAM</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Su email fue recibido con éxito, le contestaremos a la brevedad. Gracias!!!</p>
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <!-- GOOGLE ANALYTICS -->
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-59097755-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
 
     {% block javascripts %}
         {% javascripts output='js/frontend.min.js'
         'bundles/odiseoapp/js/jquery-1.10.2.min.js'
         'bundles/odiseoapp/js/bootstrap/bootstrap.min.js'
-        'bundles/odiseoapp/js/bootstrap/html5shiv.js'
-        'bundles/odiseoapp/js/plugins/jquery.bxslider.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.centralized.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.fixedonlater.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.hashloader.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.mixitup.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.nav.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.parallax-1.1.3.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.responsivevideos.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.scrollTo.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.tweet.min.js'
-        'bundles/odiseoapp/js/plugins/jquery.tweetCarousel.min.js'
-        'bundles/odiseoapp/js/application/source/application.js'
         'bundles/odiseoapp/js/main.js'
         %}
+
         <script type="text/javascript" src="{{ asset_url }}"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         {% endjavascripts %}
     {% endblock %}
-
-    <!--Start of Zopim Live Chat Script-->
-    <script type="text/javascript">
-        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-                d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-                _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
-            $.src='//v2.zopim.com/?2oIdO8a7Oh5FqtlJGKvRyXL25EhBPjsv';z.t=+new Date;$.
-                    type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
-    </script>
 </body>
 </html>

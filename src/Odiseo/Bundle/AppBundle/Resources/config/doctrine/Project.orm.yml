@@ -15,10 +15,6 @@ Odiseo\Bundle\AppBundle\Entity\Project:
             column: description
             type: text
             nullable: true
-        link:
-            column: link
-            type: string
-            nullable: true
         position:
             column: position
             type: integer
@@ -41,7 +37,11 @@ Odiseo\Bundle\AppBundle\Entity\Project:
           targetEntity: Odiseo\Bundle\AppBundle\Entity\ProjectImage
           mappedBy: project
           cascade: ["persist", "merge"]
+        files:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\ProjectFile
+          mappedBy: project
+          cascade: ["persist", "merge"]
     manyToMany:
         tags:
           targetEntity: Odiseo\Bundle\AppBundle\Entity\Tag
-          inversedBy: projects
+          mappedBy: projects

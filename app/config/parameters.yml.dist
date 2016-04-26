@@ -5,7 +5,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     odiseo_website
+    database_name:     sion
     database_user:     root
     database_password:
     # You should uncomment this if you want use pdo_sqlite
@@ -20,3 +20,5 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     locale: en
+
+    odiseo.contact.email: EDITME

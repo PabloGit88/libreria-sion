@@ -3,10 +3,11 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: doctrine_extensions.yml }
-    - { resource: odiseo.yml }
-    - { resource: admin.yml }
-    - { resource: @OdiseoProjectBundle/Resources/config/app/main.yml }
+    - { resource: admin/ }
     - { resource: @OdiseoAppBundle/Resources/config/app/main.yml }
+
+parameters:
+    odiseo_backend.homepage_route: odiseo_app_backend_dashboard
 
 framework:
     #esi:             ~
@@ -39,15 +40,10 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
-    use_controller: false
+    use_controller: '%kernel.debug%'
     bundles:        [ OdiseoAppBundle, OdiseoBackendBundle, EasyAdminBundle ]
-    #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        #closure:
-        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-        #yui_css:
-        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
 # Doctrine Configuration
 doctrine:
@@ -78,40 +74,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-knp_gaufrette:
-    stream_wrapper: ~
-
-    adapters:
-        image_adapter:
-            local:
-                directory: %kernel.root_dir%/../web/media/images
-                create:    true
-    filesystems:
-        images_fs:
-            adapter:   image_adapter
-
-vich_uploader:
-   db_driver: orm # or mongodb or propel or phpcr
-   storage:   gaufrette
-
-   mappings:
-        images:
-            uri_prefix:         /images
-            upload_destination: images_fs
-            inject_on_load:     false
-            delete_on_update:   true
-            delete_on_remove:   true
-
-liip_imagine:
-    resolvers:
-       default:
-          web_path: ~
-    filter_sets:
-        cache: ~
-        project_list:
-            filters:
-                thumbnail: { size: [390, 300], mode: outbound }
-        project_gallery:
-            filters:
-                thumbnail: { size: [900, 600], mode: outbound }

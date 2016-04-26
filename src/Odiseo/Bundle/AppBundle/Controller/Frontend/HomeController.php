@@ -31,14 +31,17 @@ class HomeController extends Controller
 
     public function contactSendAction(Request $request)
     {
-        $contact = $request->get('email');
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
+        $message = $request->get('message');
 
         $message = \Swift_Message::newInstance()
             ->setSubject('CONSULTA WEB')
-            ->setFrom($contact['userEmail'], $contact['name'])
-            ->setTo('odiseo.team@gmail.com')
+            ->setFrom($email, $name)
+            ->setTo($this->container->getParameter('odiseo.contact.email'))
             ->setBody(
-                $contact['body'],
+                $message,
                 'text/html'
             )
             /*

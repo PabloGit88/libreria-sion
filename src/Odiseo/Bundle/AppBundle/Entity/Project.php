@@ -3,6 +3,7 @@
 namespace Odiseo\Bundle\AppBundle\Entity;
 
 use Beelab\TagBundle\Entity\AbstractTaggable;
+use Beelab\TagBundle\Tag\TagInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Project extends AbstractTaggable
@@ -16,6 +17,7 @@ class Project extends AbstractTaggable
     protected $position;
     protected $createdAt;
     protected $updatedAt;
+    protected $files;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class Project extends AbstractTaggable
 
         $this->images = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->files = new ArrayCollection();
         $this->position = 0;
     }
 
@@ -58,12 +61,21 @@ class Project extends AbstractTaggable
 
     public function setImages($images)
     {
-        $this->images = $images;
+        foreach($images as $image)
+        {
+            $this->addImage($image);
+        }
     }
 
     public function getImages()
     {
         return $this->images;
+    }
+
+    public function addImage(ProjectImage $image)
+    {
+        $this->images->add($image);
+        $image->setProject($this);
     }
 
     public function getMainImage()
@@ -95,6 +107,32 @@ class Project extends AbstractTaggable
         return $images;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function addTag(TagInterface $tag)
+    {
+        if (!$this->hasTag($tag)) {
+            $this->tags[] = $tag;
+            $tag->addProject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeTag(TagInterface $tag)
+    {
+        if ($this->hasTag($tag)) {
+            parent::removeTag($tag);
+            $tag->removeProject($this);
+        }
+
+        return $this;
+    }
+
     public function setTagsText($tagsText)
     {
         $this->updatedAt = new \DateTime();
@@ -102,14 +140,19 @@ class Project extends AbstractTaggable
         return parent::setTagsText($tagsText);
     }
 
-    public function setLink($link)
+    public function getTagsTextWhitespace()
     {
-        $this->link = $link;
+        $this->tagsText = implode(' ', $this->tags->toArray());
+
+        return $this->tagsText;
     }
 
-    public function getLink()
+    /**
+     * {@inheritdoc}
+     */
+    public function getTagNames()
     {
-        return $this->link;
+        return empty($this->getTagsText()) ? array() : array_map('trim', explode(',', $this->getTagsText()));
     }
 
     public function setPosition($position)
@@ -120,6 +163,31 @@ class Project extends AbstractTaggable
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param mixed $files
+     */
+    public function setFiles($files)
+    {
+        foreach($files as $file)
+        {
+            $this->addFile($file);
+        }
+    }
+
+    public function addFile(ProjectFile $file)
+    {
+        $this->files->add($file);
+        $file->setProject($this);
     }
 
     public function setUpdatedAt($updatedAt)
@@ -144,6 +212,6 @@ class Project extends AbstractTaggable
 
     public function __toString()
     {
-        return $this->name;
+        return (string) $this->name;
     }
 }

@@ -14,9 +14,7 @@ Odiseo\Bundle\AppBundle\Entity\Tag:
         isFilter:
             column: is_filter
             type: boolean
-            options:
-                default: false
     manyToMany:
         projects:
           targetEntity: Odiseo\Bundle\AppBundle\Entity\Project
-          mappedBy: tags
+          inversedBy: tags

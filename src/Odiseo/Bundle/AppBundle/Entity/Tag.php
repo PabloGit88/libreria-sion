@@ -14,6 +14,11 @@ class Tag implements TagInterface
     protected $isFilter;
     protected $projects;
 
+    public function __construct()
+    {
+        $this->isFilter = true;
+    }
+
     public function getId()
     {
         return $this->id;

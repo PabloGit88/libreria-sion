@@ -1,6 +1,0 @@
-parameters:
-    odiseo_project.model.user: Odiseo\Bundle\AppBundle\Entity\User
-    odiseo_project.repository.user: Odiseo\Bundle\ProjectBundle\Repository\UserRepository
-
-    odiseo_backend.homepage_route: odiseo_app_backend_dashboard
-    odiseo_backend.favicon: 'bundles/odiseoapp/images/logo.png'
