@@ -10,13 +10,38 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('position' => 'ASC'));
+        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
         $tags = $this->get('odiseo.repository.tag')->findAll();
 
         return $this->render('OdiseoAppBundle:Frontend/Home:index.html.twig', array(
             'projects' => $projects,
             'tags' => $tags
         ));
+    }
+    public function aboutAction()
+    {
+        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
+        $tags = $this->get('odiseo.repository.tag')->findAll();
+
+        return $this->render('OdiseoAppBundle:Frontend/Home:about.html.twig', array(
+            'projects' => $projects,
+            'tags' => $tags
+        ));
+    }
+    public function blogAction()
+    {
+        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
+        $tags = $this->get('odiseo.repository.tag')->findAll();
+
+        return $this->render('OdiseoAppBundle:Frontend/Home:blog.html.twig', array(
+            'projects' => $projects,
+            'tags' => $tags
+        ));
+    }
+    public function contactAction()
+    {
+
+        return $this->render('OdiseoAppBundle:Frontend/Home:contact.html.twig');
     }
 
     public function projectShowAction(Request $request)

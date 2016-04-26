@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\File\File;
 class ProjectImage
 {
     protected $id;
-    protected $project;
+    protected $homeConfiguration;
     protected $name;
     protected $imageName;
     protected $imageFile;
@@ -47,14 +47,14 @@ class ProjectImage
         $this->name = $name;
     }
 
-    public function setProject($project)
+    public function setHomeConfiguration($homeConfiguration)
     {
-        $this->project = $project;
+        $this->homeConfiguration = $homeConfiguration;
     }
 
-    public function getProject()
+    public function getHomeConfiguration()
     {
-        return $this->project;
+        return $this->homeConfiguration;
     }
 
     public function setImageName($imageName)

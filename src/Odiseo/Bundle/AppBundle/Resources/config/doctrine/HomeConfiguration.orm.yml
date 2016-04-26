@@ -1,6 +1,6 @@
-Odiseo\Bundle\AppBundle\Entity\Project:
+Odiseo\Bundle\AppBundle\Entity\HomeConfiguration:
     type: entity
-    table: odiseo_project
+    table: odiseo_home_configuration
     id:
         id:
             type: integer
@@ -8,17 +8,6 @@ Odiseo\Bundle\AppBundle\Entity\Project:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            column: name
-            type: string
-        description:
-            column: description
-            type: text
-            nullable: true
-        imageName:
-            type: string
-            length: 255
-            nullable: true
         createdAt:
             type: datetime
             nullable: false
@@ -31,3 +20,8 @@ Odiseo\Bundle\AppBundle\Entity\Project:
             gedmo:
                 timestampable:
                     on: update
+    oneToMany:
+        images:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+          mappedBy: homeConfiguration
+          cascade: ["persist", "merge"]

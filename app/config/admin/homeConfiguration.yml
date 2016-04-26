@@ -1,0 +1,23 @@
+easy_admin:
+    entities:
+        ProjectImage:
+            class: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+            label: 'Imágenes de la pantalla principal'
+            image_base_path: '/media/images/'
+            form:
+                fields:
+                    - { property: 'imageFile', label: 'Image', type: 'file' }
+            new:
+                title: 'Crear nueva imagen'
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'imageName', label: 'Imagen', type: 'image' }
+            edit:
+                title:  'Editar imagen %%entity_id%%'
+            show:
+                title:  'Imagen %%entity_id%%'
+                fields:
+                    - 'id'
+                    - { property: 'imageName', label: 'Image', type: 'image' }

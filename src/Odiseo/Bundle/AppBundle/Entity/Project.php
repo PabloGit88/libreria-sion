@@ -2,32 +2,19 @@
 
 namespace Odiseo\Bundle\AppBundle\Entity;
 
-use Beelab\TagBundle\Entity\AbstractTaggable;
-use Beelab\TagBundle\Tag\TagInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
 
-class Project extends AbstractTaggable
+class Project
 {
     protected $id;
     protected $name;
     protected $description;
-    protected $images;
-    protected $tags;
-    protected $link;
-    protected $position;
+    protected $imageFile;
+    protected $imageName;
     protected $createdAt;
     protected $updatedAt;
-    protected $files;
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->images = new ArrayCollection();
-        $this->tags = new ArrayCollection();
-        $this->files = new ArrayCollection();
-        $this->position = 0;
-    }
 
     public function getId()
     {
@@ -59,135 +46,40 @@ class Project extends AbstractTaggable
         return $this->description;
     }
 
-    public function setImages($images)
+    /* vichuploader*/
+    public function setImageFile(File $image = null)
     {
-        foreach($images as $image)
-        {
-            $this->addImage($image);
+        $this->imageFile = $image;
+
+        if ($image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
         }
-    }
-
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    public function addImage(ProjectImage $image)
-    {
-        $this->images->add($image);
-        $image->setProject($this);
-    }
-
-    public function getMainImage()
-    {
-        $mainImage = null;
-
-        foreach ($this->images as $image)
-        {
-            if($image->isMain())
-            {
-                $mainImage = $image;
-            }
-        }
-
-        return $mainImage;
-    }
-
-    public function getNonMainImages()
-    {
-        $images = array();
-        foreach ($this->images as $image)
-        {
-            if(!$image->isMain())
-            {
-                $images[] = $image;
-            }
-        }
-
-        return $images;
     }
 
     /**
-     * {@inheritdoc}
+     * @return File
      */
-    public function addTag(TagInterface $tag)
+    public function getImageFile()
     {
-        if (!$this->hasTag($tag)) {
-            $this->tags[] = $tag;
-            $tag->addProject($this);
-        }
-
-        return $this;
+        return $this->imageFile;
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $imageName
      */
-    public function removeTag(TagInterface $tag)
+    public function setImageName($imageName)
     {
-        if ($this->hasTag($tag)) {
-            parent::removeTag($tag);
-            $tag->removeProject($this);
-        }
-
-        return $this;
-    }
-
-    public function setTagsText($tagsText)
-    {
-        $this->updatedAt = new \DateTime();
-
-        return parent::setTagsText($tagsText);
-    }
-
-    public function getTagsTextWhitespace()
-    {
-        $this->tagsText = implode(' ', $this->tags->toArray());
-
-        return $this->tagsText;
+        $this->imageName = $imageName;
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function getTagNames()
+    public function getImageName()
     {
-        return empty($this->getTagsText()) ? array() : array_map('trim', explode(',', $this->getTagsText()));
-    }
-
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    }
-
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFiles()
-    {
-        return $this->files;
-    }
-
-    /**
-     * @param mixed $files
-     */
-    public function setFiles($files)
-    {
-        foreach($files as $file)
-        {
-            $this->addFile($file);
-        }
-    }
-
-    public function addFile(ProjectFile $file)
-    {
-        $this->files->add($file);
-        $file->setProject($this);
+        return $this->imageName;
     }
 
     public function setUpdatedAt($updatedAt)

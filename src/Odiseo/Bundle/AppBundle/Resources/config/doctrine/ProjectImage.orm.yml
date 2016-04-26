@@ -32,10 +32,10 @@ Odiseo\Bundle\AppBundle\Entity\ProjectImage:
                 timestampable:
                     on: update
     manyToOne:
-        project:
-          targetEntity: Odiseo\Bundle\AppBundle\Entity\Project
+        homeConfiguration:
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\HomeConfiguration
           inversedBy: images
           joinColumn:
-            name: project_id
+            name: homeConfiguration_id
             referencedColumnName: id
             onDelete: CASCADE
