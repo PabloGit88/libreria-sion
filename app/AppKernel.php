@@ -20,7 +20,6 @@ class AppKernel extends BaseKernel
             new \Odiseo\Bundle\BackendBundle\OdiseoBackendBundle(),
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(), 
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Beelab\TagBundle\BeelabTagBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new \Odiseo\Bundle\AppBundle\OdiseoAppBundle(),
         );

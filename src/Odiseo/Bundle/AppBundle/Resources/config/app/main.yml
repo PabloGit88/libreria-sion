@@ -30,6 +30,7 @@ vich_uploader:
         images:
             uri_prefix:         /images
             upload_destination: images_fs
+            namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
@@ -54,9 +55,6 @@ liip_imagine:
             filters:
                 thumbnail: { size: [900, 600], mode: outbound }
 
-beelab_tag:
-    tag_class: Odiseo\Bundle\AppBundle\Entity\Tag
-
 sylius_resource:
     resources:
         odiseo.user:
@@ -64,13 +62,18 @@ sylius_resource:
             classes:
                 model: Odiseo\Bundle\AppBundle\Entity\User
                 repository: Odiseo\Bundle\AppBundle\Repository\UserRepository
-
-        odiseo.project:
+        odiseo.news:
             driver: doctrine/orm
             classes:
-                model: Odiseo\Bundle\AppBundle\Entity\Project
-                repository: Odiseo\Bundle\AppBundle\Repository\ProjectRepository
-        odiseo.tag:
+                model: Odiseo\Bundle\AppBundle\Entity\News
+                repository: Odiseo\Bundle\AppBundle\Repository\NewsRepository
+        odiseo.beraca:
             driver: doctrine/orm
             classes:
-                model: Odiseo\Bundle\AppBundle\Entity\Tag
+                model: Odiseo\Bundle\AppBundle\Entity\Beraca
+                repository: Odiseo\Bundle\AppBundle\Repository\BeracaRepository
+        odiseo.homeConfiguration:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\AppBundle\Entity\HomeConfiguration
+                repository: Odiseo\Bundle\AppBundle\Repository\HomeConfigurationRepository

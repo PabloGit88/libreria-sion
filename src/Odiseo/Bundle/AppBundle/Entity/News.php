@@ -5,7 +5,7 @@ namespace Odiseo\Bundle\AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\File;
 
-class Project
+class News
 {
     protected $id;
     protected $name;

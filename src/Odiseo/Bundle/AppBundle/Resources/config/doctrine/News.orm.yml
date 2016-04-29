@@ -1,6 +1,6 @@
-Odiseo\Bundle\AppBundle\Entity\ProjectFile:
+Odiseo\Bundle\AppBundle\Entity\News:
     type: entity
-    table: odiseo_project_file
+    table: odiseo_news
     id:
         id:
             type: integer
@@ -11,14 +11,14 @@ Odiseo\Bundle\AppBundle\Entity\ProjectFile:
         name:
             column: name
             type: string
-        fileName:
-            column: file_name
+        description:
+            column: description
+            type: text
+            nullable: true
+        imageName:
             type: string
-        position:
-            column: position
-            type: integer
-            options:
-                default: 0
+            length: 255
+            nullable: true
         createdAt:
             type: datetime
             nullable: false
@@ -31,11 +31,3 @@ Odiseo\Bundle\AppBundle\Entity\ProjectFile:
             gedmo:
                 timestampable:
                     on: update
-    manyToOne:
-        project:
-          targetEntity: Odiseo\Bundle\AppBundle\Entity\Project
-          inversedBy: files
-          joinColumn:
-            name: project_id
-            referencedColumnName: id
-            onDelete: CASCADE

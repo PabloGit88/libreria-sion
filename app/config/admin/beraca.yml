@@ -1,8 +1,8 @@
 easy_admin:
     entities:
-        Project:
-            class: Odiseo\Bundle\AppBundle\Entity\Project
-            label: 'Blog'
+        Beraca:
+            class: Odiseo\Bundle\AppBundle\Entity\Beraca
+            label: 'Beraca'
             image_base_path: '/media/images/'
             form:
                 fields:
@@ -17,11 +17,11 @@ easy_admin:
                     - { property: 'imageName', label: 'Imagen', type: 'image' }
                     - { property: 'createdAt', label: 'Fecha creación' }
             edit:
-                title:  'Editar noticia %%entity_id%%'
+                title:  'Editar producto %%entity_id%%'
             new:
-                title:  'Crear nueva noticia'
+                title:  'Crear nuevo producto'
             show:
-                title:  'Noticia %%entity_id%%'
+                title:  'Producto %%entity_id%%'
                 fields:
                     - 'id'
                     - { property: 'name', label: 'Nombre' }

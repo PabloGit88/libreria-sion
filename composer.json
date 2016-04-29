@@ -14,7 +14,6 @@
     "friendsofsymfony/user-bundle" : "2.0.x-dev",
     "hwi/oauth-bundle": "^0.4.1",
     "friendsofsymfony/jsrouting-bundle": "^1.6",
-    "beelab/tag-bundle": "1.*",
     "egeloen/ckeditor-bundle": "^4.0"
   },
   "require-dev" : {

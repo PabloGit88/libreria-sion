@@ -1,4 +1,0 @@
-Odiseo\Bundle\AppBundle\Entity\ProjectFile:
-    file:
-        mapping:           files
-        filename_property: file_name

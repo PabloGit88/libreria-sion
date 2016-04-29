@@ -1,4 +1,4 @@
-Odiseo\Bundle\AppBundle\Entity\Project:
+Odiseo\Bundle\AppBundle\Entity\Beraca:
     imageFile:
         mapping:           images
         filename_property: image_name

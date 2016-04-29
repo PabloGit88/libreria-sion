@@ -2,6 +2,7 @@
 
 namespace Odiseo\Bundle\AppBundle\Controller\Frontend;
 
+use Odiseo\Bundle\AppBundle\Entity\HomeConfiguration;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,32 +11,29 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
-        $tags = $this->get('odiseo.repository.tag')->findAll();
+        /** @var HomeConfiguration $homeconfiguration */
+        $homeconfiguration = $this->get('odiseo.repository.homeConfiguration')->findBy(array(), array('createdAt' => 'DESC'));
+
+        $images = '';
 
         return $this->render('OdiseoAppBundle:Frontend/Home:index.html.twig', array(
-            'projects' => $projects,
-            'tags' => $tags
+            'images' => $images,
         ));
     }
     public function aboutAction()
     {
-        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
-        $tags = $this->get('odiseo.repository.tag')->findAll();
+        $productsBeraca = $this->get('odiseo.repository.beraca')->findBy(array(), array('createdAt' => 'DESC'));
 
         return $this->render('OdiseoAppBundle:Frontend/Home:about.html.twig', array(
-            'projects' => $projects,
-            'tags' => $tags
+            'productsBeraca' => $productsBeraca,
         ));
     }
-    public function blogAction()
+    public function newsAction()
     {
-        $projects = $this->get('odiseo.repository.project')->findBy(array(), array('createdAt' => 'DESC'));
-        $tags = $this->get('odiseo.repository.tag')->findAll();
+        $news = $this->get('odiseo.repository.news')->findBy(array(), array('createdAt' => 'DESC'));
 
-        return $this->render('OdiseoAppBundle:Frontend/Home:blog.html.twig', array(
-            'projects' => $projects,
-            'tags' => $tags
+        return $this->render('OdiseoAppBundle:Frontend/Home:news.html.twig', array(
+            'news' => $news,
         ));
     }
     public function contactAction()
@@ -47,7 +45,7 @@ class HomeController extends Controller
     public function projectShowAction(Request $request)
     {
         $id = $request->get('id');
-        $project = $this->get('odiseo.repository.project')->find($id);
+        $project = $this->get('odiseo.repository.news')->find($id);
 
         return $this->render('OdiseoAppBundle:Frontend/Home:projectShow.html.twig', array(
             'project' => $project

@@ -1,0 +1,30 @@
+easy_admin:
+    entities:
+        News:
+            class: Odiseo\Bundle\AppBundle\Entity\News
+            label: 'Novedades'
+            image_base_path: '/media/images/'
+            form:
+                fields:
+                  - { property: 'name', label: 'Nombre' }
+                  - { property: 'description', label: 'Descripción', type: 'ckeditor' }
+                  - { property: 'imageFile', label: 'Image', type: 'file' }
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'imageName', label: 'Imagen', type: 'image' }
+                    - { property: 'createdAt', label: 'Fecha creación' }
+            edit:
+                title:  'Editar novedad %%entity_id%%'
+            new:
+                title:  'Crear nueva novedad'
+            show:
+                title:  'Novedad %%entity_id%%'
+                fields:
+                    - 'id'
+                    - { property: 'name', label: 'Nombre' }
+                    - { property: 'description', type: 'raw' }
+                    - { property: 'imageName', label: 'Image', type: 'image' }
+                    - 'createdAt'
