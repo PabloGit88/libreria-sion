@@ -3,6 +3,7 @@
 namespace Odiseo\Bundle\AppBundle\Controller\Frontend;
 
 use Odiseo\Bundle\AppBundle\Entity\HomeConfiguration;
+use Odiseo\Bundle\AppBundle\Entity\HomeImage;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,13 +12,11 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        /** @var HomeConfiguration $homeconfiguration */
-        $homeconfiguration = $this->get('odiseo.repository.homeConfiguration')->findBy(array(), array('createdAt' => 'DESC'));
-
-        $images = '';
+        /** @var HomeImage $homeImage */
+        $homeImage = $this->get('odiseo.repository.homeImage')->findBy(array(), array('createdAt' => 'DESC'));
 
         return $this->render('OdiseoAppBundle:Frontend/Home:index.html.twig', array(
-            'images' => $images,
+            'images' => $homeImage,
         ));
     }
     public function aboutAction()

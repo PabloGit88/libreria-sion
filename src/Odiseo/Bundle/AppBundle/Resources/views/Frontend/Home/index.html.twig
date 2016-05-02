@@ -16,7 +16,7 @@
                         <div class="carousel-inner">
                             {% for image in images %}
                                 <div class="item{{ (loop.index == 1)? ' active':''}}">
-                                    <img class="img-responsive img-full" src="{{ asset('bundles/odiseoapp/images/'~image.name) }}" alt="">
+                                    <img class="img-responsive img-full" src="{{ asset(image.imageName|imagine_filter('image_filter')) }}" alt="">
                                 </div>
                             {% endfor %}
                         </div>

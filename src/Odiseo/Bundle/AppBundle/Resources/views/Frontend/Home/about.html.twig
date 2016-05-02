@@ -12,9 +12,8 @@
                 <hr>
             </div>
             {% for product in productsBeraca %}
-                {{ dump(product) }}
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="{{ product.imageFile?product.imageFile.path|imagine_filter('project_list'):'' }}" alt="">
+                    <img class="img-responsive img-border img-full" src="{{ asset(product.imageName|imagine_filter('image_filter')) }}" alt="">
                     <h2>{{ product.name|raw }}
                         <br>
                         <small>{{ product.createdAt|date('d-m-Y') }}</small>

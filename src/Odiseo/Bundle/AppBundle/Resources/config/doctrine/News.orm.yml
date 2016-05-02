@@ -16,6 +16,7 @@ Odiseo\Bundle\AppBundle\Entity\News:
             type: text
             nullable: true
         imageName:
+            column: image_name
             type: string
             length: 255
             nullable: true

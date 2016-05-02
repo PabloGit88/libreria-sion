@@ -1,6 +1,6 @@
-Odiseo\Bundle\AppBundle\Entity\ProjectImage:
+Odiseo\Bundle\AppBundle\Entity\HomeImage:
     type: entity
-    table: odiseo_project_image
+    table: odiseo_home_image
     id:
         id:
             type: integer
@@ -8,17 +8,9 @@ Odiseo\Bundle\AppBundle\Entity\ProjectImage:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            column: name
-            type: string
         imageName:
             column: image_name
             type: string
-        isMain:
-            column: is_main
-            type: boolean
-            options:
-                default: false
         createdAt:
             type: datetime
             nullable: false

@@ -4,7 +4,7 @@ namespace Odiseo\Bundle\AppBundle\Entity;
 
 use Symfony\Component\HttpFoundation\File\File;
 
-class ProjectImage
+class HomeImage
 {
     protected $id;
     protected $homeConfiguration;
@@ -31,22 +31,6 @@ class ProjectImage
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
     public function setHomeConfiguration($homeConfiguration)
     {
         $this->homeConfiguration = $homeConfiguration;
@@ -56,52 +40,41 @@ class ProjectImage
     {
         return $this->homeConfiguration;
     }
-
-    public function setImageName($imageName)
+    /* vichuploader*/
+    public function setImageFile(File $image = null)
     {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
-
-    public function setImageFile(File $imageFile)
-    {
-        if($imageFile instanceof File)
-        {
-            $this->imageFile = $imageFile;
-
-            if(!$this->name)
-            {
-                $this->name = $imageFile->getFilename();
-            }
-
+        $this->imageFile = $image;
+        if ($image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTime('now');
         }
     }
 
+    /**
+     * @return File
+     */
     public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    public function setIsMain($isMain)
+    /**
+     * @param string $imageName
+     */
+    public function setImageName($imageName)
     {
-        $this->isMain = $isMain;
+        $this->imageName = $imageName;
     }
 
-    public function getIsMain()
+    /**
+     * @return string
+     */
+    public function getImageName()
     {
-        return $this->isMain;
+        return $this->imageName;
     }
-
-    public function isMain()
-    {
-        return $this->getIsMain();
-    }
-
+    
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;

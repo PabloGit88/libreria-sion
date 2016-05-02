@@ -48,10 +48,12 @@ liip_imagine:
                 data_root: %kernel.root_dir%/../web/media/images
     filter_sets:
         cache: ~
-        project_list:
+        image_filter:
+            data_loader: default
             filters:
-                thumbnail: { size: [710, 513], mode: outbound }
-        project_gallery:
+                thumbnail: { size: [843, 403], mode: outbound }
+        products_filter:
+            data_loader: default
             filters:
                 thumbnail: { size: [900, 600], mode: outbound }
 
@@ -77,3 +79,8 @@ sylius_resource:
             classes:
                 model: Odiseo\Bundle\AppBundle\Entity\HomeConfiguration
                 repository: Odiseo\Bundle\AppBundle\Repository\HomeConfigurationRepository
+        odiseo.homeImage:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\AppBundle\Entity\HomeImage
+                repository: Odiseo\Bundle\AppBundle\Repository\HomeImageRepository

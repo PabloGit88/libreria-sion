@@ -22,6 +22,6 @@ Odiseo\Bundle\AppBundle\Entity\HomeConfiguration:
                     on: update
     oneToMany:
         images:
-          targetEntity: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+          targetEntity: Odiseo\Bundle\AppBundle\Entity\HomeImage
           mappedBy: homeConfiguration
           cascade: ["persist", "merge"]

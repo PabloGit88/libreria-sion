@@ -1,7 +1,7 @@
 easy_admin:
     entities:
-        ProjectImage:
-            class: Odiseo\Bundle\AppBundle\Entity\ProjectImage
+        HomeImage:
+            class: Odiseo\Bundle\AppBundle\Entity\HomeImage
             label: 'Imágenes de la pantalla principal'
             image_base_path: '/media/images/'
             form:

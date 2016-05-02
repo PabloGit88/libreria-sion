@@ -3,7 +3,7 @@
 namespace Odiseo\Bundle\AppBundle\DataFixtures\ORM;
 
 use Odiseo\Bundle\AppBundle\Entity\News;
-use Odiseo\Bundle\AppBundle\Entity\ProjectImage;
+use Odiseo\Bundle\AppBundle\Entity\HomeImage;
 use Symfony\Component\Finder\Finder;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

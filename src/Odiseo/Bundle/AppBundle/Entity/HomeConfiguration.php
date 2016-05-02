@@ -41,7 +41,7 @@ class HomeConfiguration
         return $this->images;
     }
 
-    public function addImage(ProjectImage $image)
+    public function addImage(HomeImage $image)
     {
         $this->images->add($image);
         $image->setHomeConfiguration($this);
