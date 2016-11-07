@@ -3,12 +3,19 @@ odiseo_app_frontend_homepage:
     defaults: { _controller: "OdiseoAppBundle:Frontend/Home:index" }
 
 odiseo_app_frontend_about:
-    path:     /beraca
-    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:about" }
+    path:     /beraca{page}
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:about", page:1 }
+    requirements:
+      _method:  GET
+      page: \d+
+
 
 odiseo_app_frontend_news:
-    path:     /novedades
-    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:news" }
+    path:     /novedades{page}
+    defaults: { _controller: "OdiseoAppBundle:Frontend/Home:news" , page:1 }
+    requirements:
+      _method:  GET
+      page: \d+
 
 odiseo_app_frontend_contact:
     path:     /contacto

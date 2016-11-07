@@ -1,3 +1,10 @@
 .navbar-default .navbar-nav>li>a {
     color: #777;
 }
+body {
+    background: url('../images/Fondo.jpg') repeat center center fixed;
+}
+
+.container footer,.container .brand,.container .address-bar,.container .navbar-default{
+    display:none;
+}

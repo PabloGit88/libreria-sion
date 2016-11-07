@@ -11,6 +11,7 @@
 
     <title>Libreria Sion</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('bundles/odiseoapp/images/escrituras-250x150.jpg') }}" />
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -34,6 +35,15 @@
 </head>
 
 <body id="page-top" class="index">
+    <script>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_ES/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     {% block nav %}
 
         <div class="brand">Librerias Sion</div>
@@ -88,7 +98,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <p>Copyright &copy; Your Website 2016</p>
+                        <p>Copyright &copy; libreriasion.com 2016</p>
                     </div>
                 </div>
             </div>

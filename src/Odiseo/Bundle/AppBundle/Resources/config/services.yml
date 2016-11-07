@@ -1,2 +1,8 @@
 parameters:
 services:
+    odiseo.pagiante_contents.twig_extension:
+        class: Odiseo\Bundle\AppBundle\Twig\PaginateContentsExtension
+        public: false
+        arguments: ["@service_container"]
+        tags:
+            - { name: twig.extension }
